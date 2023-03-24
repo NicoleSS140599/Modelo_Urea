@@ -1,22 +1,25 @@
 import pandas as pd
 import streamlit as st
 
+st.set_page_config(
+    page_title="Modelo consumo de Urea", layout="centered"
+)
+
+in01 = st.number_input('Inserte S285ALA105')
+in02 = st.number_input('Inserte S285ALA108')
+in03 = st.number_input('Inserte s285ala058')
+in04 = st.number_input('Inserte s285ala062 ')
+in05 = st.number_input('Inserte 285FIT249.PNT')
+in06 = st.number_input('Inserte S285ALA053')
+in07 = st.number_input('Inserte S285ALA030')
+in08 = st.number_input('Inserte S285ALA026')
+in09 = st.number_input('Inserte 285AIC131A.MEAS ')
+in10 = st.number_input('Inserte 285FIT180.PNT')
+in11 = st.number_input('Inserte S285ALA115')
+in12 = st.number_input('Inserte 285FIT178.PNT')
+in13 = st.number_input('Inserte S285ALA110')
 
 modelo = pd.read_pickle('modelo_urea_01.pkl')
-
-in01 = 9.390851    # 230AIT322.PNT 
-in02 = 1.438268    # 230FY499BOPP.RO01
-in03 = 1.234382    # SOLIDOS_EVAP_TON_SF2.C
-in04 = 6.50        # S220ALDP004
-in05 = 20.977497   # 220ALCALI.PNT
-in06 = 163.354462  # 220FIC161.MEAS
-in07 = 3085.845459 # 240FI020A.PNT
-in08 = 3085.845459 # 240FI020A.PNT
-in09 = 3085.845459 # 240FI020A.PNT
-in10 = 3085.845459 # 240FI020A.PNT
-in11 = 3085.845459 # 240FI020A.PNT
-in12 = 3085.845459 # 240FI020A.PNT
-in13 = 3085.845459 # 240FI020A.PNT
 
 
 entradas = pd.DataFrame(columns = modelo.feature_names_in_)
@@ -24,4 +27,6 @@ entradas.loc[len(entradas)] = [in01, in02, in03, in04, in05, in06, in07, in08, i
 
 
 predicciones = modelo.predict(entradas)
-predicciones[0]
+#predicciones[0]
+st.write('La predicción de consumo de urea es: ', predicciones[0])
+
