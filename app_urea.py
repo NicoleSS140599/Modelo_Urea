@@ -1,3 +1,7 @@
+import pandas as pd
+import streamlit as st
+
+
 modelo = pd.read_pickle('modelo_urea_01.pkl')
 
 in01 = 9.390851    # 230AIT322.PNT 
