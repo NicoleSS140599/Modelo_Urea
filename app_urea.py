@@ -23,5 +23,5 @@ entradas = pd.DataFrame(columns = modelo.feature_names_in_)
 entradas.loc[len(entradas)] = [in01, in02, in03, in04, in05, in06, in07, in08, in09, in10, in11, in12, in13]
 
 
-predicciones = modelo_RF.predict(entradas)
+predicciones = modelo.predict(entradas)
 predicciones[0]
